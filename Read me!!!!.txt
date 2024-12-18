@@ -1,0 +1,9 @@
+Cette application offre les fonctionaLités de base liées à la gestion des utilisateurs:
+
+Enregistrement
+Authentification
+Réinitialisation du mot de passe.
+
+Elle utilise une base de données PostgreSQL 17 nommé "alertbook_data"
+
+Elle peut être modifiées à volonté et adaptée pour fonctionner avec MySQL
