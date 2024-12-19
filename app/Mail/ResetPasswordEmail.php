@@ -12,15 +12,15 @@ use Illuminate\Queue\SerializesModels;
 class ResetPasswordEmail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $token;
+    public $user;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($token)
+    public function __construct($user)
     {
         //
-        $this->token = $token;
+        $this->user = $user;
     }
 
     /**
@@ -29,7 +29,7 @@ class ResetPasswordEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Reset Password Email',
+            subject: 'Réinitialisation de mot de passe',
         );
     }
 
@@ -46,7 +46,7 @@ class ResetPasswordEmail extends Mailable
     public function build()
     {
         return $this->subject('Changement de mot de passe')
-            ->view('emails.reset_password')->with(['token' => $this->token,]);
+            ->view('emails.reset_password')->with(['user' => $this->user,]);
     }
 
     /**

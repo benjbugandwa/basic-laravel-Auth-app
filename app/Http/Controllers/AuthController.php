@@ -111,6 +111,12 @@ class AuthController extends Controller
 
     public function showDashboardForm()
     {
-        return view('dashboard');
+        if (Auth::check()) {
+            return view('dashboard');
+
+        } else {
+            return redirect()->route('login');
+        }
+
     }
 }

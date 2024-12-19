@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Notification</title>
+    <title>Account Notifica</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -51,12 +51,12 @@
             <h1>Reinitialisation du mot de passe</h1>
         </div>
         <div class="content">
-            <p>Bonjour,</p>
+            <p>Bonjour, {{ $user->name }} !</p>
             <p>Vous recevez ce message parce que vous avez demander la réinitialisation de votre mot de passe</p>
             <p>Cliquez sur le lien ci dessous pour procéder à la réinitialisation de votre mot de passe</p>
-            <a href="{{ url('password/reset', $token) }}">Reset Password</a>
+            <a href="{{ url('password/reset', $user->remember_token) }}">Changer mon mot de passe</a>
             <p>Si vous n'avez pas demandé la réinitialisation de votre mot de passe, veuillez ignorer ce message</p>
-            <p>Cordialement,<br>Protection civile RDC/Cluster protection RDC</p>
+            <p>Cordialement,<br><b>Protection civile RDC/Cluster protection RDC</b></p>
         </div>
 
         <div class="footer">

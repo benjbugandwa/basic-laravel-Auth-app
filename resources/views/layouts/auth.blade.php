@@ -10,6 +10,9 @@
     <title>@yield('title')</title>
     <link href="{{ asset('apptemplate/css/styles.css') }}" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+
+
     <style>
         .error {
             color: red;
@@ -23,37 +26,59 @@
         <div id="layoutAuthentication_content">
             <main>
 
-                @if (session('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ session('success') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header">
+                                    <h3 class="text-center font-weight-light my-4">@yield('card_title')</h3>
+                                </div>
+                                <div class="card-body">
+
+
+                                    @if (session('success'))
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <strong>{{ session('success') }}</strong>
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                                aria-label="Close">
+                                                <!--<span aria-hidden="true">&times;</span>-->
+                                            </button>
+                                        </div>
+                                    @endif
+
+                                    @if (session('error'))
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <strong>{{ session('error') }}</strong>
+                                            <button type="button" class="close" data-bs-dismiss="alert"
+                                                aria-label="Close">
+                                                <!--<span aria-hidden="true">&times;</span>-->
+                                            </button>
+                                        </div>
+                                    @endif
+
+
+
+                                    @yield('content')
+
+
+                                </div>
+                                <div class="card-footer text-center py-3">
+                                    <div class="small"><a href="{{ route('register') }}">Créer un compte ici!</a></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                @endif
-
-                @if (session('error'))
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        {{ session('error') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                @endif
-
-
-                @yield('content')
+                </div>
             </main>
         </div>
         <div id="layoutAuthentication_footer">
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div class="text-muted">Copyright &copy; AlertBook 2024</div>
                         <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
+
+                            <a href="#">A propos de AlertBook</a>
                         </div>
                     </div>
                 </div>
